@@ -43,7 +43,7 @@ const App = () => {
       />
 
 
-      <View>
+      <View style={{paddingTop: 10, paddingLeft: 170}}>
         <Image
           style={{width: 50, height: 50,}}
           source={{
