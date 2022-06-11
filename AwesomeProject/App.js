@@ -32,7 +32,7 @@ const App = () => {
       <Text style={style.center} size='large'>Hello ! Let's learn React-Native 🔥</Text>
 
       <Button
-        onPress={()=> alert("You pressed me!")}
+        onPress={()=> alert("O hello ? ")}
         title="Press Me"
       />
 
@@ -43,12 +43,14 @@ const App = () => {
       />
 
 
-      <Image
-        style={{width: 50, height: 50,}}
-        source={{
-          uri: 'https://reactnative.dev/img/tiny_logo.png',
-        }}
-      />
+      <View>
+        <Image
+          style={{width: 50, height: 50,}}
+          source={{
+            uri: 'https://reactnative.dev/img/tiny_logo.png',
+          }}
+        />
+      </View>
       
     </ScrollView>
   );
