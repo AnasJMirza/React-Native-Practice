@@ -4,7 +4,7 @@ import React from 'react'
 export default function App() {
   return (
     <View>
-      <Text>App</Text>
+      <Text>Every thing is working fine. Hurray !😄</Text>
     </View>
   )
 }
