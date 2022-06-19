@@ -7,10 +7,16 @@ import {
   TouchableOpacity,
   Button,
   TouchableNativeFeedback,
+  Alert,
+  Platform,
+  StatusBar,
+  Dimensions,
  } from 'react-native'
 import React from 'react'
 
 export default function App() {
+
+  console.log(Dimensions.get('screen')); // to get the screen size
 
   const handlePress = () => {
     alert("Text Clicked");
@@ -19,7 +25,7 @@ export default function App() {
   return (
 
     // React native practice
-    
+
     <SafeAreaView style={styles.container}>
 
       <TouchableOpacity onPress={()=> alert("Image Touched")}>
@@ -45,7 +51,10 @@ export default function App() {
         <View style={{backgroundColor:'crimson', width : 120, height : 30}}></View>
       </TouchableNativeFeedback>
 
-      <Butt
+      <Button title="I Will Guess" color="orange" onPress={()=> Alert.alert("Question", "You touched me, right ?", [
+        {text : "Yes", onPress: ()=> alert("U r a truthful person")},
+        {text : "No", onPress: ()=> alert("U r a Liear")}
+      ])}/>
 
     </SafeAreaView>
 
@@ -57,6 +66,7 @@ const styles = StyleSheet.create({
   container : {
     flex: 1,
     backgroundColor : 'dodgerblue',
+    // paddingTop : Platform.OS === 'android' ? StatusBar.currentHeight : 0, ==> To check the height of the status bar to give padding from top
     justifyContent : 'center',
     alignItems : 'center',
   },
