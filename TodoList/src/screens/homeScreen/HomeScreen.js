@@ -1,12 +1,12 @@
 import { View, Text, Button } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
+import styles from './HomeScreenStyle'
 import React from 'react'
 
 const HomeScreen = () => {
 
   return (
-    <View>
-      <Text>HomeScreen</Text>
+    <View style={styles.container}>
+      <Text>Profile picture</Text>
     </View>
   )
 }

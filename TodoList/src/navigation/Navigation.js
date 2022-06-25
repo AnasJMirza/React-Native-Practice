@@ -12,9 +12,9 @@ const Navigation = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen options={{ title: 'hidden' }} name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown:false}}>
+        <Stack.Screen  name="Splash" component={SplashScreen} />
+        <Stack.Screen name="Home" component={HomeScreen}  />
       </Stack.Navigator>
     </NavigationContainer>
   )
