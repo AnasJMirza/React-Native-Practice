@@ -16,7 +16,7 @@ const HomeScreen = () => {
 
       <View style={styles.todosSection}>
         <View style={styles.todosInformation}>
-          <Text style={styles.todosHeading}>Enter Your Tasks</Text>
+          <Text style={styles.todosHeading}>TODOS</Text>
         </View>
 
         <View style={styles.actualTodos}>
