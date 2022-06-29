@@ -1,13 +1,27 @@
-import {View, Text, TextInput, StyleSheet} from 'react-native';
-import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Button,
+  FlatList,
+} from 'react-native';
+import React, {useState} from 'react';
 
 export default function App() {
 
-  const [name, setName] = useState("Anas")
-
-  const todoGetter = (event)=>{
-    setName(event.target.value)
+  let todoValue = "";
+  const todoGetter = (val) => {
+    todoValue = val
   }
+
+  const submitHandler = (todoValue) => {
+    let newData = [...todos, {todo : todoValue}]
+    setTodos(newData);
+  }
+
+  const [todos, setTodos] = useState([])
+
 
   return (
     <View>
@@ -15,9 +29,15 @@ export default function App() {
       <TextInput
         style={styles.input}
         placeholder="Enter your tasks"
-        onChange={(event) => todoGetter(event)}
+        onChangeText={val => todoGetter(val)}
       />
-      <Text style={styles.logo}>{name}</Text>
+      <Button title="Submit" onPress={() => submitHandler(todoValue)} />
+      <FlatList
+        data={todos}
+        renderItem={element => {
+          return <Text style={styles.logo}>{element.item.todo}</Text>;
+        }}
+      />
     </View>
   );
 }
