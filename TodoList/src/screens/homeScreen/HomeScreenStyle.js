@@ -32,15 +32,23 @@ const styles = StyleSheet.create({
         alignItems : 'center',
     },
 
-    todosHeading: {
-        fontFamily: 'poppins',
-        fontWeight: 700,
-        fontSize: 17,
+    // todosHeading: {
+    //     fontFamily: 'poppins',
+    //     fontWeight: 700,
+    //     fontSize: 17,
+    // },
+
+    actualTodosWrapper: {
+        flex: 10,
+        backgroundColor : 'crimson'
     },
 
     actualTodos: {
-        flex: 10,
-        backgroundColor : 'crimson'
+        color : 'white',
+        fontSize : 20,
+        fontFamily : 'poppins',
+        padding : 10,
+
     },
 
     profilePicture: {
