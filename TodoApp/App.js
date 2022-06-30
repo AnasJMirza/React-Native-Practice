@@ -5,39 +5,51 @@ import {
   StyleSheet,
   Button,
   FlatList,
+  Modal,
 } from 'react-native';
 import React, {useState} from 'react';
 
 export default function App() {
+  let todoValue = '';
+  const todoGetter = val => {
+    todoValue = val;
+  };
 
-  let todoValue = "";
-  const todoGetter = (val) => {
-    todoValue = val
-  }
-
-  const submitHandler = (todoValue) => {
-    let newData = [...todos, {todo : todoValue}]
+  const submitHandler = todoValue => {
+    let newData = [...todos, {todo: todoValue}];
     setTodos(newData);
-  }
+    setModal(false)
+  };
 
-  const [todos, setTodos] = useState([])
+  const [modal, setModal] = useState(false);
 
+  const [todos, setTodos] = useState([]);
 
   return (
     <View>
       <Text style={styles.logo}>Todo List</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Enter your tasks"
-        onChangeText={val => todoGetter(val)}
-      />
-      <Button title="Submit" onPress={() => submitHandler(todoValue)} />
+
       <FlatList
         data={todos}
         renderItem={element => {
           return <Text style={styles.logo}>{element.item.todo}</Text>;
         }}
       />
+
+      <Modal visible={modal}>
+        <View>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your tasks"
+            onChangeText={val => todoGetter(val)}
+          />
+          <Button title="Submit" onPress={() => submitHandler(todoValue)} />
+        </View>
+      </Modal>
+
+      <View style={styles.btn}>
+        <Button title={'add'} onPress={() => setModal(true)} />
+      </View>
     </View>
   );
 }
@@ -55,5 +67,12 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     fontSize: 20,
     fontFamily: 'poppins',
+  },
+
+  btn: {
+    width: 50,
+    position: 'absolute',
+    top: 650,
+    right: 20,
   },
 });
