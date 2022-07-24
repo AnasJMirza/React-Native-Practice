@@ -24,6 +24,7 @@ export default function App() {
   const [modal, setModal] = useState(false);
 
   const [todos, setTodos] = useState([]);
+  
 
   return (
     <View>
@@ -36,7 +37,7 @@ export default function App() {
         }}
       />
 
-      <Modal visible={modal}>
+      <Modal visible={modal} animationType="slide">
         <View>
           <TextInput
             style={styles.input}
@@ -75,4 +76,6 @@ const styles = StyleSheet.create({
     top: 650,
     right: 20,
   },
+
 });
+
